@@ -1,6 +1,6 @@
 import { defineComponent, PropType } from 'vue'
 
-interface IBButtonProps {
+interface ISBButtonProps {
   disabled?: boolean
   toggle?: boolean
   pressed?: boolean
@@ -33,22 +33,10 @@ type TVariant =
   | 'outline-dark'
   | 'link'
 
-// Compute required classes (non static classes)
-const computeClass = (props: IBButtonProps) => [
-  'btn',
-  `btn-${props.variant || 'secondary'}`,
-  {
-    // [`btn-${props.size}`]: props.size,
-    'btn-block': props.block,
-    'rounded-pill': props.pill
-    // 'rounded-0': props.squared && !props.pill,
-    // disabled: props.disabled,
-    // active: props.pressed
-  }
-]
 
-const BButton = defineComponent({
-  name: 'BButton',
+
+const SBButton = defineComponent({
+  name: 'SBButton',
   props: {
     disabled: {
       type: Boolean,
@@ -98,7 +86,7 @@ const BButton = defineComponent({
       type: String as PropType<TVariant>,
       required: false,
       validator: function (payload: string) {
-        return ['danger', 'success', 'outline-primary'].indexOf(payload) !== -1
+        return ['primary', 'secondary', 'success', 'danger', 'warning', 'info', 'light', 'dark', 'outline-primary', 'outline-secondary', 'outline-success', 'outline-danger', 'outline-warning', 'outline-info', 'outline-light', 'outline-dark', 'link'].indexOf(payload) !== -1
       }
     },
     href: {
@@ -109,13 +97,21 @@ const BButton = defineComponent({
       }
     }
   },
-  setup(props) {
-    console.log(props)
-    return {
-      props
-    }
-  },
   render() {
+    const computeClass = (props: ISBButtonProps) => {
+      return [
+        'btn',
+        `btn-${props.variant || 'secondary'}`,
+        {
+          // [`btn-${props.size}`]: props.size,
+          'btn-block': props.block,
+          'rounded-pill': props.pill
+          // 'rounded-0': props.squared && !props.pill,
+          // disabled: props.disabled,
+          // active: props.pressed
+        }
+      ]
+    }
     // const toggle = isToggle(props)
     // const link = isLink(props)
     // const nonStandardTag = isNonStandardTag(props)
@@ -168,11 +164,11 @@ const BButton = defineComponent({
 
     // return h(link ? BLink : props.tag, mergeData(data, componentData), children)
     return (
-      <button type="button" class={computeClass((this as any).props)}>
+      <button type="button" class={computeClass((this as any).$props)}>
         {(this.$slots as any).default()[0].children}
       </button>
     )
   }
 })
 
-export default BButton
+export default SBButton

@@ -1,7 +1,7 @@
 <template>
   <div>
     App in sbvue
-    <BButton>imacool</BButton>
+    <!-- <BButton>imacool</BButton> -->
   </div>
 </template>
 

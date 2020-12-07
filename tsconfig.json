@@ -29,10 +29,12 @@
   },
   "typedocOptions": {
     "inputFiles": [
-      "./src/index.ts"
+      "index.ts",
+      "src/main.ts"
     ],
     "mode": "library",
     "name": "superbvue",
+    "includeVersion": true,
   },
   "include": [
     "src/**/*.ts",
