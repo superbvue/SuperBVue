@@ -27,6 +27,13 @@
       "scripthost"
     ]
   },
+  "typedocOptions": {
+    "inputFiles": [
+      "./src/index.ts"
+    ],
+    "mode": "library",
+    "name": "superbvue",
+  },
   "include": [
     "src/**/*.ts",
     "src/**/*.tsx",
