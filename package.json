@@ -6,10 +6,26 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "prettier:src": "npx prettier -w src/**"
   },
+  "homepage": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/superbvue/SuperBVue"
+  },
+  "keywords": [
+    "supervue",
+    "vue",
+    "ui framework",
+    "component framework",
+    "ui library",
+    "component library",
+    "bootstrap"
+  ],
   "dependencies": {
     "core-js": "^3.6.5",
+    "prettier": "^2.2.1",
     "vue": "^3.0.0"
   },
   "devDependencies": {
