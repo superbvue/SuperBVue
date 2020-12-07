@@ -1,4 +1,4 @@
-# sbvue
+# SuperBVue
 
 ## Project setup
 ```
