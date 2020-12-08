@@ -33,7 +33,6 @@ type TVariant =
   | 'outline-dark'
   | 'link'
 
-
 // Convert `show` value to a number
 const parseCountDown = (show: any) => {
   console.log('show', show)
@@ -69,13 +68,33 @@ const SBAlert = defineComponent({
       required: false,
       default: 'info',
       validator: function (payload: string) {
-        return ['primary', 'secondary', 'success', 'danger', 'warning', 'info', 'light', 'dark', 'outline-primary', 'outline-secondary', 'outline-success', 'outline-danger', 'outline-warning', 'outline-info', 'outline-light', 'outline-dark', 'link'].indexOf(payload) !== -1
+        return (
+          [
+            'primary',
+            'secondary',
+            'success',
+            'danger',
+            'warning',
+            'info',
+            'light',
+            'dark',
+            'outline-primary',
+            'outline-secondary',
+            'outline-success',
+            'outline-danger',
+            'outline-warning',
+            'outline-info',
+            'outline-light',
+            'outline-dark',
+            'link'
+          ].indexOf(payload) !== -1
+        )
       }
     }
   },
   setup() {
     const state = reactive({
-      countDown: 0,
+      countDown: 0
       // If initially shown, we need to set these for SSR
       // localShow: parseShow(this.show)
     })
@@ -90,7 +109,7 @@ const SBAlert = defineComponent({
         'alert',
         `alert-${props.variant || 'secondary'}`,
         {
-          'alert-dismissible': props.dismissible,
+          'alert-dismissible': props.dismissible
           // [`alert-${props.variant}`]: props.variant
         }
       ]
@@ -104,7 +123,11 @@ const SBAlert = defineComponent({
         </div>
 
         <div class="alert alert-primary" role="alert">
-          A simple primary alert with <a href="#" class="alert-link">an example link</a>. Give it a click if you like.
+          A simple primary alert with{' '}
+          <a href="#" class="alert-link">
+            an example link
+          </a>
+          . Give it a click if you like.
         </div>
       </div>
     )

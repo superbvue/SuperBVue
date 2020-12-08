@@ -6,7 +6,6 @@ import './assets/bootstrap.css'
 
 const app = createApp(App)
 
-
 // app.component('BButton', BButton)
 
 app.mount('#app')

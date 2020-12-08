@@ -1,11 +1,11 @@
 import { defineComponent, PropType, VNode, defineProps, DefineComponent } from 'vue'
 
 interface ISBButtonGroup {
-  vertical?: boolean,
-  size?: string,
-  ariaRole?: string,
-  type?: string,
-  variant?: string,
+  vertical?: boolean
+  size?: string
+  ariaRole?: string
+  type?: string
+  variant?: string
   class?: string
 }
 
@@ -27,7 +27,6 @@ type TVariant =
   | 'outline-light'
   | 'outline-dark'
   | 'link'
-
 
 const TButtonGroupProps = defineProps({
   vertical: {
@@ -66,7 +65,6 @@ const TButtonGroupProps = defineProps({
     required: false
   }
 })
-
 
 const SBButtonGroup = defineComponent({
   name: 'SBButtonGroup',
@@ -114,7 +112,7 @@ const SBButtonGroup = defineComponent({
   //     let listed = []
   //     for (let key in context.attrs) {
   //       console.log(key, context.attrs[key])
-  //       listed.push(`${key}= ${context.attrs[key]}`)  
+  //       listed.push(`${key}= ${context.attrs[key]}`)
   //     }
   //     console.log({listed})
   //     return listed
@@ -130,7 +128,7 @@ const SBButtonGroup = defineComponent({
     mergeAttrs() {
       let listedOfAttrs = []
       for (let key in this.$attrs) {
-        listedOfAttrs.push(`${key}= ${this.$attrs[key]}`)  
+        listedOfAttrs.push(`${key}= ${this.$attrs[key]}`)
       }
       return listedOfAttrs
     }
@@ -143,17 +141,9 @@ const SBButtonGroup = defineComponent({
     let renderButtonGroup = null
     let computeClass = (props: ISBButtonGroup) => {
       if (props.vertical) {
-        return [
-          `btn-group-vertical`,
-          props.size ? `btn-group-${props.size}` : null,
-          props.class,
-        ]
+        return [`btn-group-vertical`, props.size ? `btn-group-${props.size}` : null, props.class]
       } else {
-        return [
-          'btn-group',
-          props.size ? `btn-group-${props.size}` : null,
-          props.class
-        ]
+        return ['btn-group', props.size ? `btn-group-${props.size}` : null, props.class]
       }
     }
     if ((this.$slots as any).default) {
@@ -163,7 +153,11 @@ const SBButtonGroup = defineComponent({
     }
     if ((this.$props as any).ariaRole) {
       renderButtonGroup = (
-        <div class={computeClass((this as any).$props)} role="group" aria-label={(this.$props as any).ariaRole} {...(this as any).mergeAttrs}>
+        <div
+          class={computeClass((this as any).$props)}
+          role="group"
+          aria-label={(this.$props as any).ariaRole}
+          {...(this as any).mergeAttrs}>
           {renderChildElements}
         </div>
       )
@@ -181,7 +175,7 @@ const SBButtonGroup = defineComponent({
     //       {renderButtonGroup}
 
     //     <h1>Real</h1>
-        
+
     //     <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
     //       <button type="button" class="btn btn-primary">1</button>
     //       <button type="button" class="btn btn-primary">2</button>
@@ -197,7 +191,6 @@ const SBButtonGroup = defineComponent({
     //       </div>
     //     </div>
 
-        
     //   </div>
     // )
     return renderButtonGroup

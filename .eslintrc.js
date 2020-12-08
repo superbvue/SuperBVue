@@ -16,7 +16,9 @@ module.exports = {
     'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     '@typescript-eslint/member-delimiter-style': 'off',
     '@typescript-eslint/interface-name-prefix': 'off',
-    'prefer-const': 'off'
+    'prefer-const': 'off',
+    '@typescript-eslint/no-empty-function': 'off',
+    'vue/require-render-return': 'warn'
   },
   overrides: [
     {
