@@ -1,6 +1,6 @@
 import { defineComponent, PropType } from 'vue'
 
-interface ISBCardImgProps {
+interface ISBToastsProps {
   imgSrc: string,
   alt?: string,
   top?: boolean,
@@ -15,12 +15,12 @@ interface ISBCardImgProps {
 }
 
 // TODO: NOT DONE.. NEED MORE WORK ON...
-const SBCardImg = defineComponent({
-  name: 'SBCardImg',
+const SBToasts = defineComponent({
+  name: 'SBToasts',
   props: {
     imgSrc: {
       type: String,
-      required: true
+      required: false
     },
     alt: {
       type: String,
@@ -68,7 +68,7 @@ const SBCardImg = defineComponent({
     }
   },
   render() {
-    let computeClass = (props: ISBCardImgProps) => {
+    let computeClass = (props: ISBToastsProps) => {
       let cardImgPost = 'card-img-top'
       for (let key in props) {
         if (props[key] === true) {
@@ -79,23 +79,35 @@ const SBCardImg = defineComponent({
         cardImgPost
       ]
     }
-    let computeStyle = (props: ISBCardImgProps) => {
+    let computeStyle = (props: ISBToastsProps) => {
       console.log('props', props)
       return ''
     }
 
-    // return (
-    //   <div>
-    //     <h1>MY VERISON</h1>
-    //     <h1>REAL</h1>
-    //     <img src="https://picsum.photos/600/300/?image=25" class="card-img-top" alt="..." />
-    //   </div>
-    // )
-
     return (
-      <img src={this.imgSrc} class={computeClass((this as any).$props)} alt={this.alt} style={this.style}/>    
+      <div>
+        <h1>MY VERISON</h1>
+        <h1>REAL</h1>
+
+
+        <div class="toast fade show" role="alert" aria-live="assertive" aria-atomic="true" >
+          <div class="toast-header">
+            {/* <img src="..." class="rounded me-2" alt="..."> */}
+            <strong class="me-auto">Bootstrap</strong>
+            <small>11 mins ago</small>
+            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+          </div>
+          <div class="toast-body">
+            Hello, world! This is a toast message.
+          </div>
+        </div>
+      </div>
     )
+
+    // return (
+    //   <img src={this.imgSrc} class={computeClass((this as any).$props)} alt={this.alt} style={this.style}/>    
+    // )
   }
 })
 
-export default SBCardImg
+export default SBToasts

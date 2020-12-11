@@ -1,29 +1,6 @@
-# SuperBVue
+# SuperBoostrapVue
 
-## Project setup
-```
-npm install
-```
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+**:fire: Note this is early WIP! Currently the focus is on making SuperBoostrapVue stable and feature complete first. You can [open an issue]https://github.com/superbvue/SuperBVue/issues/new) for bugs or feature requests.**
 
-### Compiles and minifies for production
-```
-npm run build
-```
 
-### Run your unit tests
-```
-npm run test:unit
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).

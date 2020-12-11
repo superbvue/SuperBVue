@@ -18,7 +18,8 @@ module.exports = {
     '@typescript-eslint/interface-name-prefix': 'off',
     'prefer-const': 'off',
     '@typescript-eslint/no-empty-function': 'off',
-    'vue/require-render-return': 'warn'
+    'vue/require-render-return': 'warn',
+    'vue/no-unused-components': 'warn'
   },
   overrides: [
     {

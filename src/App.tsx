@@ -6,7 +6,10 @@ import SBButton from './components/button/SBButton'
 import SBCard from './components/card/SBCard'
 import SBCardImg from './components/card/SBCardImg'
 import SBCloseButton from './components/closeButton/SBCloseButton'
+import SBFormInput from './components/form/SBFormInput'
+import SBNavLink from './components/nav/SBNavLink'
 import SBSpinners from './components/spinners/SBSpinners'
+import SBToasts from './components/toasts/SBToasts'
 
 const App = defineComponent({
   name: 'App',
@@ -56,6 +59,8 @@ const App = defineComponent({
         {/* <SBCard>
 
         </SBCard> */}
+        {/* <SBFormInput></SBFormInput> */}
+        <SBNavLink></SBNavLink>
       </div>
     )
   }
