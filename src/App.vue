@@ -4,7 +4,7 @@
     <!-- <SBFormRadios v-model="state.selected" name="myFormRaios" value="A"></SBFormRadios> -->
     <SBFormRadios v-model="state.selected" name="myFormRaios" value="B" for="myFor" class="form-switch" @click="handleSetName"></SBFormRadios>
     <!-- <SBNavLink href="me">Link</SBNavLink> -->
-    <SBNav vertical>
+    <SBNav t>
       <SBNavLink href="/me" active>Active</SBNavLink>
       <SBNavLink href="/m2">Link</SBNavLink>
       <SBNavLink href="/m3">Link2</SBNavLink>

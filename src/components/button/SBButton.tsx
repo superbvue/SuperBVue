@@ -1,4 +1,4 @@
-import { defineComponent, PropType } from 'vue'
+import { defineComponent, Fragment, PropType } from 'vue'
 
 interface ISBButtonProps {
   disabled?: boolean
@@ -251,7 +251,7 @@ const SBButton = defineComponent({
         }
       }
     }
-    
+    Fragment
     // TESTING AREA. REMOVE WITH DONE...
 
     // return (
