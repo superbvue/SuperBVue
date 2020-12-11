@@ -29,7 +29,7 @@ npm install superbvue
 **1. Import the SuperBVue UI in your `main.js` file.**
 ```js
 import { createApp } from 'vue'
-import { SBButton } from 'SuperBVue'
+import { SBButton } from 'superbvue'
 import App from './App.vue'
 
 const app = createApp(App)
@@ -41,7 +41,7 @@ app.mount('#app')
 Or in component level:
 ```js
 import { defineComponent } from 'vue'
-import { SBButton } from 'SuperBVue'
+import { SBButton } from 'superbvue'
 
 export default defineComponent({
   components: {
