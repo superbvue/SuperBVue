@@ -1,23 +1,23 @@
 import { defineComponent, Fragment, PropType } from 'vue'
 
 interface ISBFormRadiosProps {
-  modelValue?: string,
-  value?: string,
-  class?: string,
-  style?: string,
-  name?: string,
-  id?: string,
-  for?: string,
-  
-  disabled?: boolean,
-  size?: string,
+  modelValue?: string
+  value?: string
+  class?: string
+  style?: string
+  name?: string
+  id?: string
+  for?: string
+
+  disabled?: boolean
+  size?: string
   type?: string
 }
 
 type TOptionsItem = {
-  value?: string,
-  text?: string,
-  disabled?: boolean,
+  value?: string
+  text?: string
+  disabled?: boolean
   label?: string
   options: TOptionsItem[]
 }
@@ -97,11 +97,7 @@ const SBFormRadios = defineComponent({
   render() {
     // console.log(this.$slots.default)
     let computeClass = (props: ISBFormRadiosProps) => {
-      return [
-        'form-check',
-        props.class,
-        props.size ? `form-select-${props.size}` : null
-      ]
+      return ['form-check', props.class, props.size ? `form-select-${props.size}` : null]
     }
     let computeStyle = (props: ISBFormRadiosProps) => {
       // console.log('props', props)
@@ -110,7 +106,15 @@ const SBFormRadios = defineComponent({
     if (this.$slots.default) {
       return (
         <div class={computeClass((this as any).$props)}>
-          <input  class="form-check-input" type={this.type} value={this.value} name={this.name} disabled={this.disabled} id={this.id} onInput={this.handleEmitValue}  />
+          <input
+            class="form-check-input"
+            type={this.type}
+            value={this.value}
+            name={this.name}
+            disabled={this.disabled}
+            id={this.id}
+            onInput={this.handleEmitValue}
+          />
           <label class="form-check-label" for={this.for}>
             {this.$slots.default()[0].children}
           </label>
@@ -119,7 +123,15 @@ const SBFormRadios = defineComponent({
     } else {
       return (
         <div class={computeClass((this as any).$props)}>
-          <input class="form-check-input" type={this.type} value={this.value} name={this.name} disabled={this.disabled} id={this.id} onInput={this.handleEmitValue} />
+          <input
+            class="form-check-input"
+            type={this.type}
+            value={this.value}
+            name={this.name}
+            disabled={this.disabled}
+            id={this.id}
+            onInput={this.handleEmitValue}
+          />
           <label class="form-check-label" for={this.for}>
             {/* {this.$slots.default()[0].children} */}
             {this.value}

@@ -1,16 +1,16 @@
 import { defineComponent, PropType } from 'vue'
 
 interface ISBCardImgProps {
-  imgSrc: string,
-  alt?: string,
-  top?: boolean,
-  bottom?: boolean,
-  start?: boolean,
-  left?: boolean,
-  end?: boolean,
-  right?: boolean,
-  height?: string | number,
-  width?: string | number,
+  imgSrc: string
+  alt?: string
+  top?: boolean
+  bottom?: boolean
+  start?: boolean
+  left?: boolean
+  end?: boolean
+  right?: boolean
+  height?: string | number
+  width?: string | number
   [key: string]: any
 }
 
@@ -75,9 +75,7 @@ const SBCardImg = defineComponent({
           cardImgPost = `card-img-${key}`
         }
       }
-      return [
-        cardImgPost
-      ]
+      return [cardImgPost]
     }
     let computeStyle = (props: ISBCardImgProps) => {
       console.log('props', props)
@@ -92,9 +90,7 @@ const SBCardImg = defineComponent({
     //   </div>
     // )
 
-    return (
-      <img src={this.imgSrc} class={computeClass((this as any).$props)} alt={this.alt} style={this.style}/>    
-    )
+    return <img src={this.imgSrc} class={computeClass((this as any).$props)} alt={this.alt} style={this.style} />
   }
 })
 

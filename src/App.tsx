@@ -18,9 +18,7 @@ const App = defineComponent({
       state: {
         class: 'accordion-button collapsed',
         class2: 'accordion-collapse collapse',
-        items: [
-          { isAccordionCollapsed: false, buttonClass: 'accordion-button collapsed',  }
-        ]
+        items: [{ isAccordionCollapsed: false, buttonClass: 'accordion-button collapsed' }]
       }
     }
   },
@@ -34,14 +32,13 @@ const App = defineComponent({
       if (this.state.class === 'accordion-button collapsed') {
         result = 'accordion-button'
         result2 = 'accordion-collapse collapse'
-        
       } else {
         result = 'accordion-button collapsed'
         result2 = 'accordion-collapse collapsed show'
       }
       this.state.class = result
       this.state.class2 = result2
-    },
+    }
   },
   computed: {
     myClass(): string {
@@ -55,7 +52,6 @@ const App = defineComponent({
     return (
       <div>
         App tsx component
-      
         {/* <SBCard>
 
         </SBCard> */}

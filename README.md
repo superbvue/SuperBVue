@@ -1,9 +1,11 @@
 # SuperBVue
 
-**SuperBVue** gives you a set of accessible and composable [Vue](https://v3.vuejs.org/) components/UI that you can use to build your favourite applications and sites with [Bootstrap v5](https://getbootstrap.com/).
+<!-- **SuperBVue** gives you a set of accessible and composable [Vue](https://v3.vuejs.org/) components/UI that you can use to build your favourite applications and sites with [Bootstrap v5](https://getbootstrap.com/). -->
+
+**SuperBVue** Bootstrap v5 UI component and grid system available for Vue v3
 
 ## Looking for the documentation?
-Head over here =>
+Head over here => [SuperBVue](https://superbvue.netlify.app/)
 
 ## Prerequisite
 - Vue 3 is required

@@ -1,22 +1,14 @@
 import { defineComponent, PropType } from 'vue'
 
 interface ISBSpinners {
-  label?: string,
-  type?: string,
-  small?: boolean,
-  variant?: string,
+  label?: string
+  type?: string
+  small?: boolean
+  variant?: string
   class?: string
 }
 
-type TVariant =
-  | 'primary'
-  | 'secondary'
-  | 'success'
-  | 'danger'
-  | 'warning'
-  | 'info'
-  | 'light'
-  | 'dark'
+type TVariant = 'primary' | 'secondary' | 'success' | 'danger' | 'warning' | 'info' | 'light' | 'dark'
 
 const SBSpinners = defineComponent({
   name: 'SBSpinners',
@@ -27,7 +19,7 @@ const SBSpinners = defineComponent({
     },
     type: {
       type: String as PropType<'grow'>,
-      required: false,
+      required: false
     },
     small: {
       type: Boolean,
@@ -37,18 +29,7 @@ const SBSpinners = defineComponent({
       type: String as PropType<TVariant>,
       required: false,
       validator: function (payload: string) {
-        return (
-          [
-            'primary',
-            'secondary',
-            'success',
-            'danger',
-            'warning',
-            'info',
-            'light',
-            'dark',
-          ].indexOf(payload) !== -1
-        )
+        return ['primary', 'secondary', 'success', 'danger', 'warning', 'info', 'light', 'dark'].indexOf(payload) !== -1
       }
     },
     class: {
@@ -71,7 +52,7 @@ const SBSpinners = defineComponent({
   render() {
     let computeClass = (props: ISBSpinners) => {
       return [
-        props.type ? 'spinner-grow' :'spinner-border',
+        props.type ? 'spinner-grow' : 'spinner-border',
         props.small ? 'spinner-border-sm' : null,
         props.variant ? `text-${props.variant}` : null,
         props.class
@@ -102,7 +83,7 @@ const SBSpinners = defineComponent({
     // }
     return (
       <div class={computeClass((this as any).$props)} role="status">
-        <span class="visually-hidden">{this.$props.label ? this.$props.label : "Loading..."}</span>
+        <span class="visually-hidden">{this.$props.label ? this.$props.label : 'Loading...'}</span>
       </div>
     )
   }

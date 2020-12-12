@@ -1,20 +1,20 @@
 import { defineComponent, PropType } from 'vue'
 
 interface ISBNavLinkProps {
-  href?: string,
-  rel?: string,
-  target?: string,
-  active?: boolean,
-  disabled?: boolean,
-  to?: string | object,
-  append?: boolean,
-  replace?: boolean,
-  activeClass?: string,
-  exact?: boolean,
-  exactActiveClass?: string,
-  style?: string,
-  id?: string,
-  linkClasses?: string,
+  href?: string
+  rel?: string
+  target?: string
+  active?: boolean
+  disabled?: boolean
+  to?: string | object
+  append?: boolean
+  replace?: boolean
+  activeClass?: string
+  exact?: boolean
+  exactActiveClass?: string
+  style?: string
+  id?: string
+  linkClasses?: string
   class?: string
 }
 
@@ -90,17 +90,15 @@ const SBNavLink = defineComponent({
   render() {
     let renderNavItem = null
     let computeClass = (props: ISBNavLinkProps) => {
-      return [
-        'nav-link',
-        props.active? 'active' : null,
-        props.class
-      ]
+      return ['nav-link', props.active ? 'active' : null, props.class]
     }
 
     if ((this.$slots as any).default()) {
       renderNavItem = (
         <li class="nav-item">
-          <a class={computeClass((this as any).$props)} target={this.target} href={this.href}>{(this.$slots as any).default()[0]}</a>
+          <a class={computeClass((this as any).$props)} target={this.target} href={this.href}>
+            {(this.$slots as any).default()[0]}
+          </a>
         </li>
       )
     }

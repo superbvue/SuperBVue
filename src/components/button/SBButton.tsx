@@ -12,6 +12,7 @@ interface ISBButtonProps {
   type?: string
   variant?: string
   href?: string
+  class?: string
 }
 
 type TVariant =
@@ -34,7 +35,7 @@ type TVariant =
   | 'link'
 
 type SBButtononClick = {
-  onClick?: (event: Event) => void,
+  onClick?: (event: Event) => void
   [key: string]: any
 }
 
@@ -124,23 +125,28 @@ const SBButton = defineComponent({
       required: false,
       default: () => {}
     },
+    class: {
+      type: String,
+      required: false
+    }
   },
   methods: {
     emitToParent(event: MouseEvent) {
       this.onClick(event)
-    } 
+    }
   },
   render() {
     const computeClass = (props: ISBButtonProps) => {
       return [
         'btn',
-        `btn-${props.variant || ''}`,
+        props.class,
+        props.variant ? `btn-${props.variant}` : null,
         {
           // [`btn-${props.size}`]: props.size,
           'btn-block': props.block,
           'rounded-pill': props.pill,
           // 'rounded-0': props.squared && !props.pill,
-          disabled: props.disabled,
+          disabled: props.disabled
           // active: props.pressed
         }
       ]
@@ -181,99 +187,89 @@ const SBButton = defineComponent({
     //     }
     //   }
     // }
-
-    if ( (this.$slots as any).default().length === 1) {
-      if (typeof (this.$slots as any).default()[0].type === 'symbol') {
-        console.log('true')
-        if (this.onClick) {
-          return (
-            <button type="button" class={computeClass((this as any).$props)} onClick={($event) => this.emitToParent($event)}>
-              {(this.$slots as any).default()[0].children}
-            </button>
-          )
+    if ((this.$slots as any).default) {
+      if ((this.$slots as any).default().length === 1) {
+        if (typeof (this.$slots as any).default()[0].type === 'symbol') {
+          if (this.onClick) {
+            return (
+              <button
+                type={this.type}
+                class={computeClass((this as any).$props)}
+                onClick={($event) => this.emitToParent($event)}>
+                {(this.$slots as any).default()[0].children}
+              </button>
+            )
+          } else {
+            return (
+              <button type={this.type} class={computeClass((this as any).$props)}>
+                {(this.$slots as any).default()[0].children}
+              </button>
+            )
+          }
         } else {
-          return (
-            <button type="button" class={computeClass((this as any).$props)}>
-              {(this.$slots as any).default()[0].children}
-            </button>
-          )
-        }
-      } else {
-        // If there any nest element like loading component 
-        if (this.onClick) {
-          return (
-            <button type="button" class={computeClass((this as any).$props)} onClick={($event) => this.emitToParent($event)}>
-              {(this.$slots as any).default()[0]}
-            </button>
-          )
-        } else {
-          return (
-            <button type="button" class={computeClass((this as any).$props)}>
-              {(this.$slots as any).default()[0]}
-            </button>
-          )
-        }
-      }
-    }
-
-    if ( (this.$slots as any).default().length === 2) {
-      // console.log('(this.$slots as any).default()[0].children', (this.$slots as any).default()[1])
-
-      if (typeof (this.$slots as any).default()[0].type === 'symbol') {
-        console.log('true')
-        if (this.onClick) {
-          return (
-            <button type="button" class={computeClass((this as any).$props)} onClick={($event) => this.emitToParent($event)}>
-              {(this.$slots as any).default()[0].children}
-            </button>
-          )
-        } else {
-          return (
-            <button type="button" class={computeClass((this as any).$props)}>
-              {(this.$slots as any).default()[0].children}
-            </button>
-          )
-        }
-      } else {
-        // If there any nest element like loading component 
-        if (this.onClick) {
-          return (
-            <button type="button" class={computeClass((this as any).$props)} onClick={($event) => this.emitToParent($event)}>
-              {(this.$slots as any).default()[0]} {(this.$slots as any).default()[1]}
-            </button>
-          )
-        } else {
-          return (
-            <button type="button" class={computeClass((this as any).$props)}>
-              {(this.$slots as any).default()[0]}
-            </button>
-          )
+          // If there any nest element like loading component
+          if (this.onClick) {
+            return (
+              <button
+                type={this.type}
+                class={computeClass((this as any).$props)}
+                onClick={($event) => this.emitToParent($event)}>
+                {(this.$slots as any).default()[0]}
+              </button>
+            )
+          } else {
+            return (
+              <button type={this.type} class={computeClass((this as any).$props)}>
+                {(this.$slots as any).default()[0]}
+              </button>
+            )
+          }
         }
       }
+
+      if ((this.$slots as any).default().length === 2) {
+        if (typeof (this.$slots as any).default()[0].type === 'symbol') {
+          console.log('true')
+          if (this.onClick) {
+            return (
+              <button
+                type={this.type}
+                class={computeClass((this as any).$props)}
+                onClick={($event) => this.emitToParent($event)}>
+                {(this.$slots as any).default()[0].children}
+              </button>
+            )
+          } else {
+            return (
+              <button type={this.type} class={computeClass((this as any).$props)}>
+                {(this.$slots as any).default()[0].children}
+              </button>
+            )
+          }
+        } else {
+          // If there any nest element like loading component
+          if (this.onClick) {
+            return (
+              <button
+                type={this.type}
+                class={computeClass((this as any).$props)}
+                onClick={($event) => this.emitToParent($event)}>
+                {(this.$slots as any).default()[0]} {(this.$slots as any).default()[1]}
+              </button>
+            )
+          } else {
+            return (
+              <button type={this.type} class={computeClass((this as any).$props)}>
+                {(this.$slots as any).default()[0]}
+              </button>
+            )
+          }
+        }
+      }
+    } else {
+      // <SBButton type="button" class="btn-close"></SBButton>
+      return <button type={this.type} class={computeClass((this as any).$props)} onClick={this.emitToParent}></button>
     }
-    Fragment
-    // TESTING AREA. REMOVE WITH DONE...
-
-    // return (
-    //   <div>
-    //     <button type="button" class={computeClass((this as any).$props)} onClick={($event) => this.emitToParent($event)}>
-    //       {(this.$slots as any).default()[0].children}
-    //     </button>
-        
-    //     <button type="button" class={computeClass((this as any).$props)}>
-    //       {(this.$slots as any).default()[0].children}
-    //     </button>
-
-    //     <button type="button" class={computeClass((this as any).$props)}>
-    //       {(this.$slots as any).default()[0]}
-    //     </button>
-
-    //     <button class="btn btn-primary" type="button" disabled>
-    //       <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-    //       {/* <span class="visually-hidden">Loading...</span> */}
-    //     </button>
-    //   </div>
-    // )
   }
 })
 

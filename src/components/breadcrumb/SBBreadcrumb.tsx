@@ -88,11 +88,7 @@ const SBBreadcrumb = defineComponent({
   },
   render() {
     let computeClass = (props: ISBBadge, itemObj: TItems) => {
-      return [
-        'breadcrumb-item',
-        props.class,
-        itemObj.active ? 'active' : null
-      ]
+      return ['breadcrumb-item', props.class, itemObj.active ? 'active' : null]
     }
 
     let renderElementItems = this.items.map((value: TItems) => {

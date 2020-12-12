@@ -2,29 +2,29 @@ import { defineComponent, Fragment, PropType } from 'vue'
 import SBFormRadios from './SBFormRadios'
 
 interface ISBFormRadiosGroupProps {
-  modelValue?: string,
-  required?: boolean,
-  form?: string,
-  autofocus?: boolean,
-  options?: {} | [],
-  checked?: any,
-  validated?: boolean,
-  stacked?: boolean,
-  buttons?: boolean,
-  value?: string | number,
-  class?: string,
-  style?: string,
-  name?: string,
-  id?: string,
-  disabled?: boolean,
-  size?: string,
-  label?: string,
+  modelValue?: string
+  required?: boolean
+  form?: string
+  autofocus?: boolean
+  options?: {} | []
+  checked?: any
+  validated?: boolean
+  stacked?: boolean
+  buttons?: boolean
+  value?: string | number
+  class?: string
+  style?: string
+  name?: string
+  id?: string
+  disabled?: boolean
+  size?: string
+  label?: string
 }
 
 type TOptionsItem = {
-  value?: string,
-  text?: string,
-  disabled?: boolean,
+  value?: string
+  text?: string
+  disabled?: boolean
   label?: string
   options: TOptionsItem[]
 }
@@ -75,7 +75,7 @@ const SBFormRadiosGroup = defineComponent({
     label: {
       type: String,
       required: false
-    },
+    }
   },
   emits: {
     [emitsType.updateModelValue]: function (payload: string) {
@@ -90,18 +90,14 @@ const SBFormRadiosGroup = defineComponent({
   methods: {
     handleEmitValue(event: Event) {
       let result: any = (event.target as HTMLInputElement).value
-      console.log({result})
+      console.log({ result })
       this.$emit(emitsType.updateModelValue, result)
     }
   },
   render() {
     console.log(this)
     let computeClass = (props: ISBFormRadiosGroupProps) => {
-      return [
-        'form-select',
-        props.class,
-        props.size ? `form-select-${props.size}` : null
-      ]
+      return ['form-select', props.class, props.size ? `form-select-${props.size}` : null]
     }
     let computeStyle = (props: ISBFormRadiosGroupProps) => {
       // console.log('props', props)
@@ -131,7 +127,7 @@ const SBFormRadiosGroup = defineComponent({
       //   )
       // }
       return (
-      <SBFormRadios  value={value.value}>{value.text}</SBFormRadios>
+        <SBFormRadios value={value.value}>{value.text}</SBFormRadios>
         // <input class="form-check-input" type="checkbox" value={value.value} onInput={this.handleEmitValue} checked={this.value === 'A' ? true : false}/>
       )
     })
@@ -139,25 +135,24 @@ const SBFormRadiosGroup = defineComponent({
     return (
       <div>
         <h1>MY VERISON</h1>
-          <div class="input-group">
-            <legend>{this.label}</legend>
-            {renderRadiosItems}
-            {/* <input class="form-check-input" type="checkbox" value={this.value} name={this.name} id="flexCheckDefault" onInput={this.handleEmitValue} checked={this.value === 'A' ? true : false}/>
+        <div class="input-group">
+          <legend>{this.label}</legend>
+          {renderRadiosItems}
+          {/* <input class="form-check-input" type="checkbox" value={this.value} name={this.name} id="flexCheckDefault" onInput={this.handleEmitValue} checked={this.value === 'A' ? true : false}/>
             <label class="form-check-label" for="flexCheckDefault">
               Default checkbox
             </label> */}
-          </div>
-          
-          {/* <div class="form-check">
+        </div>
+
+        {/* <div class="form-check">
             <input class="form-check-input" type="checkbox" value={this.value} name={this.name} id="flexCheckChecked" onInput={this.handleEmitValue} checked={this.value === 'B' ? true : false}/>
             <label class="form-check-label" for="flexCheckChecked">
               Checked checkbox
             </label>
           </div> */}
-          {/* <div class="mt-3">Selected: <strong>{this.value}</strong></div> */}
+        {/* <div class="mt-3">Selected: <strong>{this.value}</strong></div> */}
 
         <h1>REAL</h1>
-
 
         {/* <div class="form-check">
           <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"/>

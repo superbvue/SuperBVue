@@ -1,16 +1,16 @@
 import { defineComponent, PropType } from 'vue'
 
 interface ISBFormProps {
-  imgSrc: string,
-  alt?: string,
-  top?: boolean,
-  bottom?: boolean,
-  start?: boolean,
-  left?: boolean,
-  end?: boolean,
-  right?: boolean,
-  height?: string | number,
-  width?: string | number,
+  imgSrc: string
+  alt?: string
+  top?: boolean
+  bottom?: boolean
+  start?: boolean
+  left?: boolean
+  end?: boolean
+  right?: boolean
+  height?: string | number
+  width?: string | number
   [key: string]: any
 }
 
@@ -74,9 +74,7 @@ const SBForm = defineComponent({
           cardImgPost = `card-img-${key}`
         }
       }
-      return [
-        cardImgPost
-      ]
+      return [cardImgPost]
     }
     let computeStyle = (props: ISBFormProps) => {
       console.log('props', props)
@@ -88,23 +86,20 @@ const SBForm = defineComponent({
         <h1>MY VERISON</h1>
         <h1>REAL</h1>
 
-
-        <div class="toast fade show" role="alert" aria-live="assertive" aria-atomic="true" >
+        <div class="toast fade show" role="alert" aria-live="assertive" aria-atomic="true">
           <div class="toast-header">
             {/* <img src="..." class="rounded me-2" alt="..."> */}
             <strong class="me-auto">Bootstrap</strong>
             <small>11 mins ago</small>
             <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
           </div>
-          <div class="toast-body">
-            Hello, world! This is a toast message.
-          </div>
+          <div class="toast-body">Hello, world! This is a toast message.</div>
         </div>
       </div>
     )
 
     // return (
-    //   <img src={this.imgSrc} class={computeClass((this as any).$props)} alt={this.alt} style={this.style}/>    
+    //   <img src={this.imgSrc} class={computeClass((this as any).$props)} alt={this.alt} style={this.style}/>
     // )
   }
 })

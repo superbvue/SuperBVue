@@ -4,7 +4,9 @@
     <!-- <BButton>imacool</BButton> -->
     <!-- <SBFormInput v-model="state.text" type="range" size="lg" min="0" max="5" step="0.5" placeholder="Enter your name" /> -->
     <SBFormSelect v-model="state.selected" :options="state.options" />
-    <div class="mt-3">Selected: <strong>{{ state.selected }}</strong></div>
+    <div class="mt-3">
+      Selected: <strong>{{ state.selected }}</strong>
+    </div>
   </div>
 </template>
 
@@ -19,7 +21,7 @@ export default defineComponent({
     return {
       state: {
         selected: '',
-         options: [
+        options: [
           { value: null, text: 'Please select an option' },
           { value: 'a', text: 'This is First option' },
           { value: 'b', text: 'Selected Option' },
@@ -39,7 +41,6 @@ export default defineComponent({
   updated() {
     // console.log(JSON.parse(this.state.selected))
     console.log(this.state.selected)
-
   },
   components: {
     SBFormInput,

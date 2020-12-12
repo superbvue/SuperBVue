@@ -1,16 +1,11 @@
 <template>
   <div>
     App .vue in sbvue
-    <!-- <SBFormRadios v-model="state.selected" name="myFormRaios" value="A"></SBFormRadios> -->
-    <SBFormRadios v-model="state.selected" name="myFormRaios" value="B" for="myFor" class="form-switch" @click="handleSetName"></SBFormRadios>
-    <!-- <SBNavLink href="me">Link</SBNavLink> -->
-    <SBNav t>
-      <SBNavLink href="/me" active>Active</SBNavLink>
-      <SBNavLink href="/m2">Link</SBNavLink>
-      <SBNavLink href="/m3">Link2</SBNavLink>
-    </SBNav>
-    <!-- <SBFormRadios :value="state.selected" @change="handleSetName" name="myFormRaios"></SBFormRadios> -->
-    <!-- <SBFormRadiosGroup id="radio-group-1" label="useing radios group" name="radio-options" v-model="state.selected" :options="state.options"  /> -->
+    <SBAlert dismissible show variant="danger" class="myCall">
+      <strong>Holy guacamole!</strong> You should check in on some of those fields below.
+      <SBButton type="button" class="btn-close"></SBButton>
+    </SBAlert>
+    <!-- <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button> -->
   </div>
 </template>
 
@@ -22,9 +17,10 @@ import SBFormRadios from './components/form/SBFormRadios'
 import SBFormRadiosGroup from './components/form/SBFormRadiosGroup'
 import SBNavLink from './components/nav/SBNavLink'
 import SBNav from './components/nav/SBNav'
+import SBAlert from './components/alert/SBAlert'
+import SBButton from './components/button/SBButton'
 
 import { RouterLink } from 'vue-router'
-
 
 export default defineComponent({
   name: 'App',
@@ -32,7 +28,7 @@ export default defineComponent({
     return {
       state: {
         selected: '',
-         options: [
+        options: [
           { text: 'Toggle this custom radio', value: 'first' },
           { text: 'Or toggle this other custom radio', value: 'second' },
           { text: 'This one is Disabled', value: 'third', disabled: true },
@@ -43,14 +39,13 @@ export default defineComponent({
   },
   methods: {
     handleSetName(value: any) {
-      console.log({value})
+      console.log({ value })
       console.log(value.target.value)
     }
   },
   updated() {
     // console.log(JSON.parse(this.state.selected))
     console.log(this.state.selected)
-
   },
   components: {
     SBFormInput,
@@ -58,7 +53,9 @@ export default defineComponent({
     SBFormRadios,
     SBFormRadiosGroup,
     SBNavLink,
-    SBNav
+    SBNav,
+    SBAlert,
+    SBButton
   }
 })
 </script>

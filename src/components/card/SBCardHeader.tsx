@@ -1,27 +1,19 @@
 import { defineComponent, PropType } from 'vue'
 
 interface ISBCardHeaderProps {
-  imgSrc: string,
-  alt?: string,
-  top?: boolean,
-  bottom?: boolean,
-  start?: boolean,
-  left?: boolean,
-  end?: boolean,
-  right?: boolean,
-  height?: string | number,
-  width?: string | number,
+  imgSrc: string
+  alt?: string
+  top?: boolean
+  bottom?: boolean
+  start?: boolean
+  left?: boolean
+  end?: boolean
+  right?: boolean
+  height?: string | number
+  width?: string | number
   [key: string]: any
 }
-type TVariant =
-  | 'primary'
-  | 'secondary'
-  | 'success'
-  | 'danger'
-  | 'warning'
-  | 'info'
-  | 'light'
-  | 'dark'
+type TVariant = 'primary' | 'secondary' | 'success' | 'danger' | 'warning' | 'info' | 'light' | 'dark'
 
 // TODO: NOT DONE.. NEED MORE WORK ON...
 
@@ -32,54 +24,21 @@ const SBCardHeader = defineComponent({
       type: String as PropType<TVariant>,
       required: true,
       validator: function (payload: string) {
-        return (
-          [
-            'primary',
-            'secondary',
-            'success',
-            'danger',
-            'warning',
-            'info',
-            'light',
-            'dark'
-          ].indexOf(payload) !== -1
-        )
+        return ['primary', 'secondary', 'success', 'danger', 'warning', 'info', 'light', 'dark'].indexOf(payload) !== -1
       }
     },
     borderVariant: {
       type: String as PropType<TVariant>,
       required: false,
       validator: function (payload: string) {
-        return (
-          [
-            'primary',
-            'secondary',
-            'success',
-            'danger',
-            'warning',
-            'info',
-            'light',
-            'dark'
-          ].indexOf(payload) !== -1
-        )
+        return ['primary', 'secondary', 'success', 'danger', 'warning', 'info', 'light', 'dark'].indexOf(payload) !== -1
       }
     },
     textVariant: {
       type: String as PropType<TVariant>,
       required: false,
       validator: function (payload: string) {
-        return (
-          [
-            'primary',
-            'secondary',
-            'success',
-            'danger',
-            'warning',
-            'info',
-            'light',
-            'dark'
-          ].indexOf(payload) !== -1
-        )
+        return ['primary', 'secondary', 'success', 'danger', 'warning', 'info', 'light', 'dark'].indexOf(payload) !== -1
       }
     },
     class: {
@@ -99,9 +58,7 @@ const SBCardHeader = defineComponent({
           cardImgPost = `card-img-${key}`
         }
       }
-      return [
-        cardImgPost
-      ]
+      return [cardImgPost]
     }
     let computeStyle = (props: ISBCardHeaderProps) => {
       console.log('props', props)
@@ -116,9 +73,7 @@ const SBCardHeader = defineComponent({
     //   </div>
     // )
 
-    return (
-      <h5 class="card-title">Card title</h5>   
-    )
+    return <h5 class="card-title">Card title</h5>
   }
 })
 

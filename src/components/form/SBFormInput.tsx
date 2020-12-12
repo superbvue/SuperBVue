@@ -1,35 +1,35 @@
 import { defineComponent, PropType } from 'vue'
 
 interface ISBFormInputProps {
-  placeholder?: string,
-  modelValue?: string,
-  type?: string,
-  class?: string,
-  style?: string,
-  min?: string | number,
-  max?: string | number,
-  step?: string | number,
-  id?: string,
-  disabled?: boolean,
+  placeholder?: string
+  modelValue?: string
+  type?: string
+  class?: string
+  style?: string
+  min?: string | number
+  max?: string | number
+  step?: string | number
+  id?: string
+  disabled?: boolean
   size?: string
 }
 
 type TInputType =
-'text' |
-'password' |
-'email' |
-'number' |
-'url' |
-'tel' |
-'search' |
-'range' |
-'color' |
-'date' |
-'time' |
-'datetime' |
-'datetime-local' |
-'month' |
-'week'
+  | 'text'
+  | 'password'
+  | 'email'
+  | 'number'
+  | 'url'
+  | 'tel'
+  | 'search'
+  | 'range'
+  | 'color'
+  | 'date'
+  | 'time'
+  | 'datetime'
+  | 'datetime-local'
+  | 'month'
+  | 'week'
 
 const emitsType = {
   updateModelValue: 'update:modelValue'
@@ -51,7 +51,25 @@ const SBFormInput = defineComponent({
       required: false,
       default: 'text',
       validator: function (payload: string) {
-        return ['text' ,'password' ,'email' ,'number' ,'url' ,'tel' ,'search' ,'range' ,'color' ,'date' ,'time' ,'datetime' ,'datetime-local' ,'month' ,'week'].indexOf(payload) !== -1
+        return (
+          [
+            'text',
+            'password',
+            'email',
+            'number',
+            'url',
+            'tel',
+            'search',
+            'range',
+            'color',
+            'date',
+            'time',
+            'datetime',
+            'datetime-local',
+            'month',
+            'week'
+          ].indexOf(payload) !== -1
+        )
       }
     },
     value: {
@@ -90,7 +108,7 @@ const SBFormInput = defineComponent({
     size: {
       type: String as PropType<'sm' | 'md' | 'lg'>,
       required: false
-    },
+    }
   },
   emits: {
     [emitsType.updateModelValue]: function (payload: string) {
@@ -112,18 +130,10 @@ const SBFormInput = defineComponent({
     console.log(this)
     let computeClass = (props: ISBFormInputProps) => {
       if (props.type === 'range') {
-        return [
-          'form-range',
-          props.class
-        ]
+        return ['form-range', props.class]
       } else {
-        return [
-          'form-control',
-          props.class,
-          props.size ? `form-control-${props.size}` : null
-        ]
+        return ['form-control', props.class, props.size ? `form-control-${props.size}` : null]
       }
-     
     }
     let computeStyle = (props: ISBFormInputProps) => {
       // console.log('props', props)
@@ -134,34 +144,65 @@ const SBFormInput = defineComponent({
       return (
         <div>
           <h1>MY VERISON</h1>
-          <input type={this.type} id={this.id} disabled={this.disabled} max={this.max} min={this.min} step={this.step} class={computeClass((this as any).$props)} style={this.style} value={this.value ? this.value : this.modelValue} onInput={this.handleEmitValue} placeholder={this.placeholder}  aria-label="Username" aria-describedby="basic-addon1"/>
+          <input
+            type={this.type}
+            id={this.id}
+            disabled={this.disabled}
+            max={this.max}
+            min={this.min}
+            step={this.step}
+            class={computeClass((this as any).$props)}
+            style={this.style}
+            value={this.value ? this.value : this.modelValue}
+            onInput={this.handleEmitValue}
+            placeholder={this.placeholder}
+            aria-label="Username"
+            aria-describedby="basic-addon1"
+          />
           <h1>REAL</h1>
-  
-  
-          <label for="customRange1" class="form-label">Example range</label>
-          <input type="range" class="form-range" min="0" max="5" id="customRange2"/>
+
+          <label for="customRange1" class="form-label">
+            Example range
+          </label>
+          <input type="range" class="form-range" min="0" max="5" id="customRange2" />
         </div>
       )
     } else {
       return (
         <div>
           <h1>MY VERISON</h1>
-          <input type={this.type} id={this.id} disabled={this.disabled} class={computeClass((this as any).$props)} style={this.style} value={this.value ? this.value : this.modelValue} onInput={this.handleEmitValue} placeholder={this.placeholder}  aria-label="Username" aria-describedby="basic-addon1"/>
+          <input
+            type={this.type}
+            id={this.id}
+            disabled={this.disabled}
+            class={computeClass((this as any).$props)}
+            style={this.style}
+            value={this.value ? this.value : this.modelValue}
+            onInput={this.handleEmitValue}
+            placeholder={this.placeholder}
+            aria-label="Username"
+            aria-describedby="basic-addon1"
+          />
           <h1>REAL</h1>
-  
-  
+
           <div class="input-group mb-3">
-            <span class="input-group-text" id="basic-addon1">@</span>
-            <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1"/>
+            <span class="input-group-text" id="basic-addon1">
+              @
+            </span>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Username"
+              aria-label="Username"
+              aria-describedby="basic-addon1"
+            />
           </div>
         </div>
       )
     }
 
-
-
     // return (
-    //   <img src={this.imgSrc} class={computeClass((this as any).$props)} alt={this.alt} style={this.style}/>    
+    //   <img src={this.imgSrc} class={computeClass((this as any).$props)} alt={this.alt} style={this.style}/>
     // )
   }
 })
