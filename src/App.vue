@@ -1,10 +1,7 @@
 <template>
   <div>
     App .vue in sbvue
-    <SBAlert dismissible show variant="danger" class="myCall">
-      <strong>Holy guacamole!</strong> You should check in on some of those fields below.
-      <SBButton type="button" class="btn-close"></SBButton>
-    </SBAlert>
+    <SBProgress />
     <!-- <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button> -->
   </div>
 </template>
@@ -19,6 +16,7 @@ import SBNavLink from './components/nav/SBNavLink'
 import SBNav from './components/nav/SBNav'
 import SBAlert from './components/alert/SBAlert'
 import SBButton from './components/button/SBButton'
+import SBProgress from './components/progress/SBProgress'
 
 import { RouterLink } from 'vue-router'
 
@@ -55,7 +53,8 @@ export default defineComponent({
     SBNavLink,
     SBNav,
     SBAlert,
-    SBButton
+    SBButton,
+    SBProgress
   }
 })
 </script>

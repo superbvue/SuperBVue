@@ -5,7 +5,7 @@
 **SuperBVue** Bootstrap v5 UI component and grid system available for Vue v3
 
 ## Looking for the documentation?
-Head over here => [SuperBVue](https://superbvue.netlify.app/)
+Head over here ==> [SuperBVue](https://superbvue.netlify.app/)
 
 ## Prerequisite
 - Vue 3 is required
