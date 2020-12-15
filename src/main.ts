@@ -1,5 +1,5 @@
 import { createApp } from 'vue'
-import App from './App.vue'
+import App from './App'
 // import BButton from './components/buttons/BButton'
 
 import './assets/bootstrap.css'

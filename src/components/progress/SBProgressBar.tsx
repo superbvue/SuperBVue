@@ -1,10 +1,8 @@
 import { defineComponent, PropType, reactive } from 'vue'
-import SBProgressBar from './SBProgressBar'
 
-interface SBProgressProps {
+interface SBProgressBarProps {
   striped?: boolean
   animated?: boolean
-  height?: string
   precision?: boolean
   showProgress?: boolean
   showValue?: boolean
@@ -34,8 +32,8 @@ type TVariant =
   | 'outline-dark'
   | 'link'
 
-const SBProgress = defineComponent({
-  name: 'SBProgress',
+const SBProgressBar = defineComponent({
+  name: 'SBProgressBar',
   props: {
     striped: {
       type: Boolean,
@@ -43,10 +41,6 @@ const SBProgress = defineComponent({
     },
     animated: {
       type: Boolean,
-      required: false
-    },
-    height: {
-      type: String,
       required: false
     },
     precision: {
@@ -97,18 +91,8 @@ const SBProgress = defineComponent({
     value: Number,
     label: Number
   },
-  setup() {
-    let state = reactive({
-      countDown: 0
-      // If initially shown, we need to set these for SSR
-      // localShow: parseShow(this.show)
-    })
-    return {
-      state
-    }
-  },
   render() {
-    let computeClass = (props: SBProgressProps) => {
+    let computeClass = (props: SBProgressBarProps) => {
       return [
         'progress-bar',
         props.variant ? `bg-${props.variant}` : null,
@@ -117,30 +101,43 @@ const SBProgress = defineComponent({
         props.class
       ]
     }
-    let renderProgressElement = null
-    if ((this.$slots as any).default) {
-      //  <SBProgress :max="100" :label="state.value" striped>
-      //    <SBProgressBar :value="state.value" :label="state.value" variant="warning" striped />
-      //  </SBProgress>
-      renderProgressElement = (
-        <div class="progress" style={{ height: this.height ? `${this.height}px` : '' }}>
-          {(this.$slots as any).default()}
-        </div>
-      )
-    } else {
-      renderProgressElement = (
-        <div class="progress" style={{ height: this.height ? `${this.height}px` : '' }}>
-          <span
-            class={computeClass((this as any).$props)}
-            role="progressbar"
-            style={{ width: `${this.value}%` }}>
-            {this.label ? `${this.label}%` : null}
-          </span>
-        </div>
-      )
-    }
-    return renderProgressElement
+    let renderAlertElement = null
+
+    // if ((this.$slots as any).default) {
+    //   // Nested child elements
+    //   if ((this.$slots as any).default().length !== 1) {
+    //     console.log('(this.$slots as any).default', (this.$slots as any).default())
+    //     renderAlertElement = (this.$slots as any).default().map((element: any) => {
+    //       // console.log('element', element)
+    //       return element
+    //     })
+    //   }
+
+    //   // renderAlertElement = (
+    //   //   <div class={computeClass((this as any).$props)} role="alert">
+    //   //     {(this.$slots as any).default()[0]}
+    //   //   </div>
+    //   // )
+    // }
+
+    // // return (
+    // //   <div class={computeClass((this as any).$props)} role="alert">
+    // //     {renderAlertElement}
+    // //   </div>
+    // // )
+
+    return (
+      <span
+        class={computeClass((this as any).$props)}
+        role="progressbar"
+        style={{ width: `${this.value}%` }}
+        aria-valuenow={0}
+        aria-valuemin={0}
+        aria-valuemax={100}>
+        {this.label ? `${this.label}%` : null}
+      </span>
+    )
   }
 })
 
-export default SBProgress
+export default SBProgressBar

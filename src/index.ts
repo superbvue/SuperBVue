@@ -8,6 +8,7 @@ import SBCard from '../src/components/card/SBCard'
 import SBCloseButton from '../src/components/closeButton/SBCloseButton'
 import SBNav from '../src/components/nav/SBNav'
 import SBProgress from '../src/components/progress/SBProgress'
+import SBProgressBar from '../src/components/progress/SBProgressBar'
 
 export {
   SBAccordion,
@@ -19,5 +20,6 @@ export {
   SBCard,
   SBCloseButton,
   SBNav,
-  SBProgress
+  SBProgress,
+  SBProgressBar
 }

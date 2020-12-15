@@ -1,7 +1,13 @@
 <template>
   <div>
     App .vue in sbvue
-    <SBProgress />
+    <!-- <SBProgress :value="state.value" :label="state.value" variant="warning" class="w-25" striped /> -->
+    <SBProgress :max="100" :label="state.value" striped>
+      <SBProgressBar :value="state.value" :label="state.value" variant="warning" striped />
+    </SBProgress>
+
+    <!-- <SBBadge>My badge</SBBadge> -->
+
     <!-- <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button> -->
   </div>
 </template>
@@ -17,6 +23,8 @@ import SBNav from './components/nav/SBNav'
 import SBAlert from './components/alert/SBAlert'
 import SBButton from './components/button/SBButton'
 import SBProgress from './components/progress/SBProgress'
+import SBProgressBar from './components/progress/SBProgressBar'
+import SBBadge from './components/badge/SBBadge'
 
 import { RouterLink } from 'vue-router'
 
@@ -31,7 +39,8 @@ export default defineComponent({
           { text: 'Or toggle this other custom radio', value: 'second' },
           { text: 'This one is Disabled', value: 'third', disabled: true },
           { text: 'This is the 4th radio', value: { fourth: 4 } }
-        ]
+        ],
+        value: 75
       }
     }
   },
@@ -54,7 +63,9 @@ export default defineComponent({
     SBNav,
     SBAlert,
     SBButton,
-    SBProgress
+    SBProgress,
+    SBProgressBar,
+    SBBadge
   }
 })
 </script>

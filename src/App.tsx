@@ -1,4 +1,5 @@
 import { defineComponent } from 'vue'
+import SBProgress from './components/progress/SBProgress'
 import SBAccordion from './components/accordion/SBAccordion'
 import SBBadge from './components/badge/SBBadge'
 import SBBreadcrumb from './components/breadcrumb/SBBreadcrumb'
@@ -52,11 +53,8 @@ const App = defineComponent({
     return (
       <div>
         App tsx component
-        {/* <SBCard>
-
-        </SBCard> */}
-        {/* <SBFormInput></SBFormInput> */}
-        <SBNavLink></SBNavLink>
+        {/* <SBProgress :value="state.value" :label="state.value" variant="warning" class="w-25" striped /> --> */}
+        <SBProgress value={75} label={75} variant="warning" class="w-25" />
       </div>
     )
   }

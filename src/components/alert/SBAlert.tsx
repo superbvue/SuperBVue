@@ -103,6 +103,7 @@ const SBAlert = defineComponent({
       ]
     }
     let renderAlertElement = null
+    let renderOnlyAlertElement = null
 
     if ((this.$slots as any).default) {
       // Nested child elements
@@ -114,18 +115,24 @@ const SBAlert = defineComponent({
         })
       }
 
-      // renderAlertElement = (
-      //   <div class={computeClass((this as any).$props)} role="alert">
-      //     {(this.$slots as any).default()[0]}
-      //   </div>
-      // )
+      renderOnlyAlertElement = (
+        <div class={computeClass((this as any).$props)} role="alert">
+          {(this.$slots as any).default()[0]}
+        </div>
+      )
     }
 
-    return (
-      <div class={computeClass((this as any).$props)} role="alert">
-        {renderAlertElement}
-      </div>
-    )
+    if (renderAlertElement) {
+      return renderAlertElement
+    } else {
+      return renderOnlyAlertElement
+    }
+    // return (
+    //   <div class={computeClass((this as any).$props)} role="alert">
+    //     {renderAlertElement}
+    //   </div>
+    // )
+    // return renderOnlyAlertElement
   }
 })
 
