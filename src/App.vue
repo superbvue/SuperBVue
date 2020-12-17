@@ -1,13 +1,10 @@
 <template>
   <div>
     App .vue in sbvue
-    <!-- <SBProgress :value="state.value" :label="state.value" variant="warning" class="w-25" striped /> -->
-    <SBProgress :max="100" :label="state.value" striped>
-      <SBProgressBar :value="state.value" :label="state.value" variant="warning" striped />
-    </SBProgress>
-
+    <!-- <SBFormInput v-model="state.selected" type="range" min="0" max="50" value="10" /> -->
     <!-- <SBBadge>My badge</SBBadge> -->
-
+    <SBFormSelect v-model="state.selected" :options="state.options" />
+    <p>{{state.selected}}</p>
     <!-- <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button> -->
   </div>
 </template>

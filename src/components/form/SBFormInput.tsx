@@ -108,7 +108,9 @@ const SBFormInput = defineComponent({
     size: {
       type: String as PropType<'sm' | 'md' | 'lg'>,
       required: false
-    }
+    },
+    onInput: Function,
+
   },
   emits: {
     [emitsType.updateModelValue]: function (payload: string) {
@@ -124,6 +126,11 @@ const SBFormInput = defineComponent({
     handleEmitValue(event: Event) {
       let result = (event.target as HTMLInputElement).value
       this.$emit(emitsType.updateModelValue, result)
+    
+      // If user use jsx/tsx emit $event
+      if (this.onInput) {
+        this.onInput(event)
+      }
     }
   },
   render() {
@@ -156,8 +163,6 @@ const SBFormInput = defineComponent({
             value={this.value ? this.value : this.modelValue}
             onInput={this.handleEmitValue}
             placeholder={this.placeholder}
-            aria-label="Username"
-            aria-describedby="basic-addon1"
           />
           <h1>REAL</h1>
 
@@ -180,10 +185,8 @@ const SBFormInput = defineComponent({
             value={this.value ? this.value : this.modelValue}
             onInput={this.handleEmitValue}
             placeholder={this.placeholder}
-            aria-label="Username"
-            aria-describedby="basic-addon1"
           />
-          <h1>REAL</h1>
+          <h1>REALs</h1>
 
           <div class="input-group mb-3">
             <span class="input-group-text" id="basic-addon1">

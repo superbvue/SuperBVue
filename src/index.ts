@@ -9,6 +9,7 @@ import SBCloseButton from '../src/components/closeButton/SBCloseButton'
 import SBNav from '../src/components/nav/SBNav'
 import SBProgress from '../src/components/progress/SBProgress'
 import SBProgressBar from '../src/components/progress/SBProgressBar'
+import SBFormSelect from '../src/components/form/SBFormSelect'
 
 export {
   SBAccordion,
@@ -21,5 +22,6 @@ export {
   SBCloseButton,
   SBNav,
   SBProgress,
-  SBProgressBar
+  SBProgressBar,
+  SBFormSelect
 }

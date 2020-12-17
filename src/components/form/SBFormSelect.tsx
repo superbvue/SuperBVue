@@ -15,11 +15,11 @@ interface ISBFormSelectProps {
 }
 
 type TOptionsItem = {
-  value?: string
+  value?: any
   text?: string
   disabled?: boolean
   label?: string
-  options: TOptionsItem[]
+  options?: TOptionsItem[]
 }
 
 const emitsType = {
@@ -56,6 +56,10 @@ const SBFormSelect = defineComponent({
     size: {
       type: String as PropType<'sm' | 'md' | 'lg'>,
       required: false
+    },
+    onChange: {
+      type: Function,
+      required: false
     }
   },
   emits: {
@@ -68,10 +72,18 @@ const SBFormSelect = defineComponent({
       }
     }
   },
+  setup(props, { attrs, slots, expose, emit }) {
+    console.log({ attrs, slots, expose, emit })
+  },
   methods: {
     handleEmitValue(event: Event) {
       let result: any = (event.target as HTMLInputElement).value
       this.$emit(emitsType.updateModelValue, result)
+
+        // If user use jsx/tsx emit $event
+        if (this.onChange) {
+          this.onChange(event)
+        }
     }
   },
   render() {
@@ -85,7 +97,7 @@ const SBFormSelect = defineComponent({
     }
 
     let renderOptionItems = this.options.map((value: TOptionsItem) => {
-      console.log({ value })
+      // console.log({ value })
 
       // option groups
       if (value.options) {
@@ -114,27 +126,9 @@ const SBFormSelect = defineComponent({
       }
     })
     return (
-      <div>
-        <h1>MY VERISON</h1>
-        <select
-          class={computeClass((this as any).$props)}
-          aria-label="Default select example"
-          onChange={this.handleEmitValue}>
-          {renderOptionItems}
-        </select>
-        <div class="mt-3">
-          Selected: <strong>{this.modelValue}</strong>
-        </div>
-
-        <h1>REAL</h1>
-
-        <select class="form-select" aria-label="Default select example">
-          <option selected>Open this select menu</option>
-          <option value="1">One</option>
-          <option value="2">Two</option>
-          <option value="3">Three</option>
-        </select>
-      </div>
+      <select class={computeClass((this as any).$props)} onChange={this.handleEmitValue}>
+        {renderOptionItems}
+      </select>
     )
   }
 })
