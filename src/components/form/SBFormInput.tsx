@@ -109,8 +109,7 @@ const SBFormInput = defineComponent({
       type: String as PropType<'sm' | 'md' | 'lg'>,
       required: false
     },
-    onInput: Function,
-
+    onInput: Function
   },
   emits: {
     [emitsType.updateModelValue]: function (payload: string) {
@@ -126,7 +125,7 @@ const SBFormInput = defineComponent({
     handleEmitValue(event: Event) {
       let result = (event.target as HTMLInputElement).value
       this.$emit(emitsType.updateModelValue, result)
-    
+
       // If user use jsx/tsx emit $event
       if (this.onInput) {
         this.onInput(event)

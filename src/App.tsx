@@ -12,6 +12,9 @@ import SBFormSelect from './components/form/SBFormSelect'
 import SBNavLink from './components/nav/SBNavLink'
 import SBSpinners from './components/spinners/SBSpinners'
 import SBToasts from './components/toasts/SBToasts'
+import SBContainer from './components/layoutAndGridSystem/SBContainer'
+import SBRow from './components/layoutAndGridSystem/SBRow'
+import SBCol from './components/layoutAndGridSystem/SBCol'
 
 const App = defineComponent({
   name: 'App',
@@ -60,10 +63,13 @@ const App = defineComponent({
     return (
       <div>
         App tsx component
-        {/* <SBFormInput value={this.state.selected} type="date" onInput={this.handleSetName} /> */}
-        <h1>selected{this.state.selected}</h1>
-        <SBFormSelect options={this.state.options} onChange={this.handleSetName} />
-        <p>{this.state.selected}</p>
+        <SBContainer widths="sm">
+          <SBRow class="vh-100 ">
+            <SBCol>1 of 3</SBCol>
+            <SBCol class="offset-md-4">2 of 3</SBCol>
+            <SBCol>3 of 3</SBCol>
+          </SBRow>
+        </SBContainer>
       </div>
     )
   }

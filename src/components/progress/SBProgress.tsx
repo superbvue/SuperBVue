@@ -130,10 +130,7 @@ const SBProgress = defineComponent({
     } else {
       renderProgressElement = (
         <div class="progress" style={{ height: this.height ? `${this.height}px` : '' }}>
-          <span
-            class={computeClass((this as any).$props)}
-            role="progressbar"
-            style={{ width: `${this.value}%` }}>
+          <span class={computeClass((this as any).$props)} role="progressbar" style={{ width: `${this.value}%` }}>
             {this.label ? `${this.label}%` : null}
           </span>
         </div>

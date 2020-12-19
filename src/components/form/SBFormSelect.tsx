@@ -80,10 +80,10 @@ const SBFormSelect = defineComponent({
       let result: any = (event.target as HTMLInputElement).value
       this.$emit(emitsType.updateModelValue, result)
 
-        // If user use jsx/tsx emit $event
-        if (this.onChange) {
-          this.onChange(event)
-        }
+      // If user use jsx/tsx emit $event
+      if (this.onChange) {
+        this.onChange(event)
+      }
     }
   },
   render() {

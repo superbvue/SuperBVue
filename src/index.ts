@@ -10,6 +10,10 @@ import SBNav from '../src/components/nav/SBNav'
 import SBProgress from '../src/components/progress/SBProgress'
 import SBProgressBar from '../src/components/progress/SBProgressBar'
 import SBFormSelect from '../src/components/form/SBFormSelect'
+import SBFormInput from '../src/components/form/SBFormInput'
+import SBContainer from '../src/components/layoutAndGridSystem/SBContainer'
+import SBRow from '../src/components/layoutAndGridSystem/SBRow'
+import SBCol from '../src/components/layoutAndGridSystem/SBCol'
 
 export {
   SBAccordion,
@@ -23,5 +27,9 @@ export {
   SBNav,
   SBProgress,
   SBProgressBar,
-  SBFormSelect
+  SBFormSelect,
+  SBFormInput,
+  SBContainer,
+  SBRow,
+  SBCol
 }

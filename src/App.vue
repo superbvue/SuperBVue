@@ -3,8 +3,15 @@
     App .vue in sbvue
     <!-- <SBFormInput v-model="state.selected" type="range" min="0" max="50" value="10" /> -->
     <!-- <SBBadge>My badge</SBBadge> -->
-    <SBFormSelect v-model="state.selected" :options="state.options" />
-    <p>{{state.selected}}</p>
+    <!-- <SBFormSelect v-model="state.selected" :options="state.options" /> -->
+    <p>{{ state.selected }}</p>
+    <SBContainer widths="sm">
+      <SBRow class="vh-100">
+        <SBCol sm alignSelf="start"> 1 of 3 </SBCol>
+        <SBCol lg alignSelf="center"> 2 of 3 </SBCol>
+        <SBCol sm> 3 of 3 </SBCol>
+      </SBRow>
+    </SBContainer>
     <!-- <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button> -->
   </div>
 </template>
@@ -22,6 +29,9 @@ import SBButton from './components/button/SBButton'
 import SBProgress from './components/progress/SBProgress'
 import SBProgressBar from './components/progress/SBProgressBar'
 import SBBadge from './components/badge/SBBadge'
+import SBContainer from './components/layoutAndGridSystem/SBContainer'
+import SBRow from './components/layoutAndGridSystem/SBRow'
+import SBCol from './components/layoutAndGridSystem/SBCol'
 
 import { RouterLink } from 'vue-router'
 
@@ -62,7 +72,10 @@ export default defineComponent({
     SBButton,
     SBProgress,
     SBProgressBar,
-    SBBadge
+    SBBadge,
+    SBContainer,
+    SBRow,
+    SBCol
   }
 })
 </script>
