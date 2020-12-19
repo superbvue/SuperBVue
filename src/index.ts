@@ -31,5 +31,5 @@ export {
   SBFormInput,
   SBContainer,
   SBRow,
-  SBCol
+  SBCol,
 }
