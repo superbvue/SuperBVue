@@ -1,41 +1,35 @@
-// import { createApp, Plugin } from 'vue'
-import SBAlert from './src/components/alert/SBAlert'
-import SBBadge from './src/components/badge/SBBadge'
-import SBBreadcrumb from './src/components/breadcrumb/SBBreadcrumb'
-import SBButton from './src/components/button/SBButton'
-import SBButtonGroup from './src/components/buttonGroup/SBButtonGroup'
-import SBCard from './src/components/card/SBCard'
-import SBCardHeader from './src/components/card/SBCardHeader'
-import SBCardImg from './src/components/card/SBCardImg'
-import SBCloseButton from './src/components/closeButton/SBCloseButton'
-import SBForm from './src/components/form/SBForm'
-import SBFormGroup from './src/components/form/SBFormGroup'
+import SBAccordion from '../src/components/accordion/SBAccordion'
+import SBAlert from '../src/components/alert/SBAlert'
+import SBBadge from '../src/components/badge/SBBadge'
+import SBBreadcrumb from '../src/components/breadcrumb/SBBreadcrumb'
+import SBButton from '../src/components/button/SBButton'
+import SBButtonGroup from '../src/components/buttonGroup/SBButtonGroup'
+import SBCard from '../src/components/card/SBCard'
+import SBCloseButton from '../src/components/closeButton/SBCloseButton'
+import SBNav from '../src/components/nav/SBNav'
+import SBProgress from '../src/components/progress/SBProgress'
+import SBProgressBar from '../src/components/progress/SBProgressBar'
+import SBFormSelect from '../src/components/form/SBFormSelect'
+import SBFormInput from '../src/components/form/SBFormInput'
+import SBContainer from '../src/components/layoutAndGridSystem/SBContainer'
+import SBRow from '../src/components/layoutAndGridSystem/SBRow'
+import SBCol from '../src/components/layoutAndGridSystem/SBCol'
 
-
-import SBNav from './src/components/nav/SBNav'
-
-
-import './src/assets/bootstrap.css'
-
-// const app = createApp(App)
-
-
-// app.component('BButton', BButton)
-
-// app.mount('#app')
-// export default {
-//   install: (app: any, options: any) => {
-//     // Plugin code goes here
-//   }
-// }
 export {
+  SBAccordion,
   SBAlert,
   SBBadge,
   SBBreadcrumb,
   SBButton,
   SBButtonGroup,
-
-
+  SBCard,
   SBCloseButton,
   SBNav,
+  SBProgress,
+  SBProgressBar,
+  SBFormSelect,
+  SBFormInput,
+  SBContainer,
+  SBRow,
+  SBCol
 }
