@@ -4,20 +4,22 @@
     <!-- <SBFormInput v-model="state.selected" type="range" min="0" max="50" value="10" /> -->
     <!-- <SBBadge>My badge</SBBadge> -->
     <!-- <SBFormSelect v-model="state.selected" :options="state.options" /> -->
-    <p>{{ state.selected }}</p>
-    <SBContainer widths="sm">
-      <SBRow class="vh-100">
-        <SBCol sm alignSelf="start"> 1 of 3 </SBCol>
-        <SBCol lg alignSelf="center"> 2 of 3 </SBCol>
-        <SBCol sm> 3 of 3 </SBCol>
-      </SBRow>
-    </SBContainer>
-    <!-- <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button> -->
+    <!-- <p>{{ state.selected }}</p> -->
+    <button
+      v-for="tract in state.tracks"
+      @click="selectTract(tract.id)"
+      :key="tract.id"
+      :class="[isSelectedTrack(tract.id) ? 'border-blue-primary bg-gray-200' : '']"
+      class="border text-black py-2 px-4 w-36 rounded-lg"
+    >
+      s
+      <!-- <h1 class="text-center">{{ tract.name }}</h1> -->
+    </button>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { computed, defineComponent, reactive, ref } from 'vue'
 import SBFormInput from './components/form/SBFormInput'
 import SBFormSelect from './components/form/SBFormSelect'
 import SBFormRadios from './components/form/SBFormRadios'
@@ -37,18 +39,45 @@ import { RouterLink } from 'vue-router'
 
 export default defineComponent({
   name: 'App',
-  data() {
-    return {
-      state: {
-        selected: '',
-        options: [
-          { text: 'Toggle this custom radio', value: 'first' },
-          { text: 'Or toggle this other custom radio', value: 'second' },
-          { text: 'This one is Disabled', value: 'third', disabled: true },
-          { text: 'This is the 4th radio', value: { fourth: 4 } }
-        ],
-        value: 75
+  // data() {
+  //   return {
+  //     state: {
+  //       selected: '',
+  //       options: [
+  //         { text: 'Toggle this custom radio', value: 'first' },
+  //         { text: 'Or toggle this other custom radio', value: 'second' },
+  //         { text: 'This one is Disabled', value: 'third', disabled: true },
+  //         { text: 'This is the 4th radio', value: { fourth: 4 } }
+  //       ],
+  //       value: 75
+  //     }
+  //   }
+  // },
+  setup() {
+    let state = reactive({
+      tracks: [
+        {
+          id: 1
+        }
+      ],
+      selectedTrack: {
+        value: []
       }
+    })
+
+    const isSelectedTrack = (name: any) => {
+      computed(function (name) {
+        console.log('name', name)
+
+        // state.selectedTrack.value.some((val: any) => {
+        //   console.log('val === name')
+        //   val === name
+        // })
+      })
+    }
+    return {
+      state,
+      isSelectedTrack
     }
   },
   methods: {
@@ -59,7 +88,7 @@ export default defineComponent({
   },
   updated() {
     // console.log(JSON.parse(this.state.selected))
-    console.log(this.state.selected)
+    // console.log(this.state.selected)
   },
   components: {
     SBFormInput,

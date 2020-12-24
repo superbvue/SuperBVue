@@ -15,61 +15,27 @@ import SBToasts from './components/toasts/SBToasts'
 import SBContainer from './components/layoutAndGridSystem/SBContainer'
 import SBRow from './components/layoutAndGridSystem/SBRow'
 import SBCol from './components/layoutAndGridSystem/SBCol'
+import SBNav from './components/nav/SBNav'
 
 const App = defineComponent({
   name: 'App',
   data() {
     return {
-      state: {
-        selected: null,
-        options: [
-          { value: null, text: 'Please select an option' },
-          { value: 'a', text: 'This is First option' },
-          { value: 'b', text: 'Selected Option' },
-          { value: { C: '3PO' }, text: 'This is an option with object value' },
-          { value: 'd', text: 'This one is disabled', disabled: true }
-        ]
-      }
+      state: {}
     }
   },
-  methods: {
-    handleSetName(event: any) {
-      console.log('enter handleSetName', event.target.value)
-      this.state.selected = event.target.value
-    },
-    handleShowCollapse(event: Event, id: number) {
-      let result = ''
-      let result2 = ''
-      // if (this.state.class === 'accordion-button collapsed') {
-      //   result = 'accordion-button'
-      //   result2 = 'accordion-collapse collapse'
-      // } else {
-      //   result = 'accordion-button collapsed'
-      //   result2 = 'accordion-collapse collapsed show'
-      // }
-      // this.state.class = result
-      // this.state.class2 = result2
-    }
-  },
-  computed: {
-    // myClass(): string {
-    //   return this.state.class
-    // },
-    // myClass2(): string {
-    //   return this.state.class2
-    // }
-  },
+  methods: {},
+  computed: {},
   render() {
     return (
       <div>
         App tsx component
-        <SBContainer widths="sm">
-          <SBRow class="vh-100 ">
-            <SBCol>1 of 3</SBCol>
-            <SBCol class="offset-md-4">2 of 3</SBCol>
-            <SBCol>3 of 3</SBCol>
-          </SBRow>
-        </SBContainer>
+        {/* <SBBreadcrumb items={this.state.options} /> */}
+        <SBNav>
+          <SBNavLink active>Active</SBNavLink>
+          <SBNavLink>Link</SBNavLink>
+          <SBNavLink>Another Link</SBNavLink>
+        </SBNav>
       </div>
     )
   }

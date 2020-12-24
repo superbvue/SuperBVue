@@ -97,39 +97,7 @@ const SBNav = defineComponent({
       renderNav = <ul class={computeClass((this as any).$props)}>{(this.$slots as any).default()}</ul>
     }
 
-    return (
-      <div>
-        <h1>MY VERISON</h1>
-        {/* <select class={computeClass((this as any).$props)} aria-label="Default select example" onChange={this.handleEmitValue}>
-            {renderOptionItems}
-          </select>
-          <div class="mt-3">Selected: <strong>{this.modelValue}</strong></div> */}
-        {renderNav}
-
-        <h1>REAL</h1>
-
-        <ul class="nav">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">
-              Active
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              Link
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              Link
-            </a>
-          </li>
-          {/* <li class="nav-item">
-            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-          </li> */}
-        </ul>
-      </div>
-    )
+    return <div>{renderNav}</div>
   }
 })
 
