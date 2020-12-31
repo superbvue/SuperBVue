@@ -1,21 +1,22 @@
-import SBAccordion from '../src/components/accordion/SBAccordion'
-import SBAlert from '../src/components/alert/SBAlert'
-import SBBadge from '../src/components/badge/SBBadge'
-import SBBreadcrumb from '../src/components/breadcrumb/SBBreadcrumb'
-import SBButton from '../src/components/button/SBButton'
-import SBButtonGroup from '../src/components/buttonGroup/SBButtonGroup'
-import SBCard from '../src/components/card/SBCard'
-import SBCloseButton from '../src/components/closeButton/SBCloseButton'
-import SBNav from '../src/components/nav/SBNav'
-import SBNavLink from '../src/components/nav/SBNavLink'
-import SBProgress from '../src/components/progress/SBProgress'
-import SBProgressBar from '../src/components/progress/SBProgressBar'
-import SBFormSelect from '../src/components/form/SBFormSelect'
-import SBFormInput from '../src/components/form/SBFormInput'
-import SBContainer from '../src/components/layoutAndGridSystem/SBContainer'
-import SBRow from '../src/components/layoutAndGridSystem/SBRow'
-import SBCol from '../src/components/layoutAndGridSystem/SBCol'
-import SBPagination from '../src/components/pagination/Pagination'
+import SBAccordion from './components/accordion/SBAccordion'
+import SBAlert from './components/alert/SBAlert'
+import SBBadge from './components/badge/SBBadge'
+import SBBreadcrumb from './components/breadcrumb/SBBreadcrumb'
+import SBButton from './components/button/SBButton'
+import SBButtonGroup from './components/buttonGroup/SBButtonGroup'
+import SBCard from './components/card/SBCard'
+import SBCloseButton from './components/closeButton/SBCloseButton'
+import SBContainer from './components/layoutAndGridSystem/SBContainer'
+import SBCol from './components/layoutAndGridSystem/SBCol'
+import SBFormSelect from './components/form/SBFormSelect'
+import SBFormInput from './components/form/SBFormInput'
+import SBNav from './components/nav/SBNav'
+import SBNavLink from './components/nav/SBNavLink'
+import SBProgress from './components/progress/SBProgress'
+import SBProgressBar from './components/progress/SBProgressBar'
+import SBPagination from './components/pagination/Pagination'
+import SBRow from './components/layoutAndGridSystem/SBRow'
+import SBTable from './components/table/SBTable'
 
 export {
   SBAccordion,
@@ -25,15 +26,16 @@ export {
   SBButton,
   SBButtonGroup,
   SBCard,
-  SBCol,
-  SBContainer,
   SBCloseButton,
+  SBContainer,
+  SBCol,
   SBFormSelect,
   SBFormInput,
   SBNav,
   SBNavLink,
-  SBPagination,
   SBProgress,
   SBProgressBar,
-  SBRow
+  SBPagination,
+  SBRow,
+  SBTable
 }
