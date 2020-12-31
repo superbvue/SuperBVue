@@ -15,6 +15,7 @@ import SBFormInput from '../src/components/form/SBFormInput'
 import SBContainer from '../src/components/layoutAndGridSystem/SBContainer'
 import SBRow from '../src/components/layoutAndGridSystem/SBRow'
 import SBCol from '../src/components/layoutAndGridSystem/SBCol'
+import SBPagination from '../src/components/pagination/Pagination'
 
 export {
   SBAccordion,
@@ -24,14 +25,15 @@ export {
   SBButton,
   SBButtonGroup,
   SBCard,
+  SBCol,
+  SBContainer,
   SBCloseButton,
-  SBNav,
-  SBNavLink,
-  SBProgress,
-  SBProgressBar,
   SBFormSelect,
   SBFormInput,
-  SBContainer,
-  SBRow,
-  SBCol
+  SBNav,
+  SBNavLink,
+  SBPagination,
+  SBProgress,
+  SBProgressBar,
+  SBRow
 }

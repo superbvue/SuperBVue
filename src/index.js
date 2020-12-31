@@ -7,6 +7,7 @@ import SBButtonGroup from '../src/components/buttonGroup/SBButtonGroup'
 import SBCard from '../src/components/card/SBCard'
 import SBCloseButton from '../src/components/closeButton/SBCloseButton'
 import SBNav from '../src/components/nav/SBNav'
+import SBNavLink from '../src/components/nav/SBNavLink'
 import SBProgress from '../src/components/progress/SBProgress'
 import SBProgressBar from '../src/components/progress/SBProgressBar'
 import SBFormSelect from '../src/components/form/SBFormSelect'
@@ -14,6 +15,7 @@ import SBFormInput from '../src/components/form/SBFormInput'
 import SBContainer from '../src/components/layoutAndGridSystem/SBContainer'
 import SBRow from '../src/components/layoutAndGridSystem/SBRow'
 import SBCol from '../src/components/layoutAndGridSystem/SBCol'
+import SBPagination from '../src/components/pagination/Pagination'
 
 export {
   SBAccordion,
@@ -23,13 +25,15 @@ export {
   SBButton,
   SBButtonGroup,
   SBCard,
+  SBCol,
+  SBContainer,
   SBCloseButton,
-  SBNav,
-  SBProgress,
-  SBProgressBar,
   SBFormSelect,
   SBFormInput,
-  SBContainer,
-  SBRow,
-  SBCol
+  SBNav,
+  SBNavLink,
+  SBPagination,
+  SBProgress,
+  SBProgressBar,
+  SBRow
 }
