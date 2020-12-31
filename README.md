@@ -15,6 +15,7 @@ Head over here ==> [SuperBVue](https://superbvue.netlify.app/)
 - **Ease of Styling:** SuperBVue using boostrap v5 UI
 - Fully support Vue 3
 - Typescript support
+- No JQuery dependencies
 
 ## Installation
 
@@ -68,7 +69,4 @@ export default defineComponent({
 })
 </script>
 ```
-
-**:fire: Note this is early WIP! Currently the focus is on making SuperBVue stable and feature complete first. You can [open an issue]https://github.com/superbvue/SuperBVue/issues/new) for bugs or feature requests.**
-
 
