@@ -1,33 +1,131 @@
-import { defineComponent, PropType } from 'vue'
-import SBButton from '../button/SBButton'
+import { ComponentPublicInstance, defineComponent, PropType } from 'vue'
+// import SBButton from '../button/SBButton'
 
 interface ISBCardProps {
   title?: string
   imgSrc?: string
-  imgTop?: boolean
-  tag?: string
+  imgTop?: boolean,
+  imgBottom?: boolean,
+  // imgEnd?: boolean,
+  // imgLeft?: boolean,
+  // imgRight?: boolean,
+  imgWidth?: boolean,
+  imgHeight?: boolean,
+  imgAlt?: string,
+  overlay?: boolean,
+  borderVariant?: string,
+  header?: string,
+  headerBgVariant?: string,
+  headerTextVariant?: string,
+  align?: string,
+  class?: string,
+  id?: string,
   style?: string
-  class?: string
 }
 
 // TODO: NOT DONE.. NEED MORE WORK ON...
+type TVariant =
+  | 'primary'
+  | 'secondary'
+  | 'success'
+  | 'danger'
+  | 'warning'
+  | 'info'
+  | 'light'
+  | 'dark'
+  | 'outline-primary'
+  | 'outline-secondary'
+  | 'outline-success'
+  | 'outline-danger'
+  | 'outline-warning'
+  | 'outline-info'
+  | 'outline-light'
+  | 'outline-dark'
+  | 'link'
+  | 'white'
+
 
 const SBCard = defineComponent({
   name: 'SBCard',
   props: {
-    disabled: {
+    title: {
+      type: String,
+      required: false
+    },
+    imgSrc: {
+      type: String,
+      required: false
+    },
+    imgTop: {
       type: Boolean,
       required: false
     },
-    onClick: {
-      type: Function as PropType<(event: MouseEvent) => void>,
+    imgBottom: {
+      type: Boolean,
+      required: false
+    },
+    // imgEnd: {
+    //   type: Boolean,
+    //   required: false
+    // },
+    // imgLeft: {
+    //   type: Boolean,
+    //   required: false
+    // },
+    // imgRight: {
+    //   type: Boolean,
+    //   required: false
+    // },
+    imgWidth: {
+      type: Boolean,
+      required: false
+    },
+    imgHeight: {
+      type: Boolean,
+      required: false
+    },
+    imgAlt: {
+      type: String,
+      required: false
+    },
+    overlay: {
+      type: Boolean,
+      required: false
+    },
+    borderVariant: {
+      type: String as PropType<TVariant>,
       required: false,
-      default: () => {}
+    },
+    header: {
+      type: String,
+      required: false
+    },
+    headerBgVariant: {
+      type: String as PropType<TVariant>,
+      required: false,
+    },
+    headerTextVariant: {
+      type: String as PropType<TVariant>,
+      required: false,
+    },
+    align: {
+      type: String,
+      required: false
     },
     class: {
       type: String,
       required: false
-    }
+    },
+    id: {
+      type: String,
+      required: false
+    },
+    style: {
+      type: String,
+      required: false,
+      default: ""
+    },
+
   },
   data() {
     return {
@@ -37,87 +135,85 @@ const SBCard = defineComponent({
     }
   },
   methods: {
-    emitToParent(event: MouseEvent) {
-      this.onClick(event)
-    },
-    handleShowCollapse(id: string) {
-      console.log({ id })
+    // emitToParent(event: MouseEvent) {
+    //   this.onClick(event)
+    // },
+    // handleShowCollapse(id: string) {
+    //   console.log({ id })
+    // }
+  },
+  computed: {
+    imgPositionClass(): string | null {
+      if (this.imgTop) {
+        return 'card-img-top'
+      } else if (this.imgBottom) {
+        return 'card-img-bottom'
+      }
+      return ''
     }
   },
-  computed: {},
   render() {
     let computeClass = (props: ISBCardProps) => {
       return [
         'card',
-        {
-          // disabled: props.disabled,
-        },
+        props.borderVariant ? props.borderVariant : null,
         props.class
       ]
     }
-    let renderMyVersion = null
-    console.log('(this as any).$slots.default', (this as any).$slots.default)
-    if ((this as any).$slots.default) {
-      // for (let i = 0; i < (this as any).$slots.default().length; i++) {
-      //   console.log('object', (this as any).$slots.default()[i])
-      //   renderMyVersion =
-      // }
-      // renderMyVersion = (this as any).$slots.default().map((element: any, index: any) => {
-      //   let nestChildred = null
-      //   // nestChildred = element.map(())
-      //   console.log('element', element.children[1])
-      //   // let buttonElement = element.children[0].children[0]
-      //   // console.log('buttonElement', buttonElement.)
-      //   // {element.children[0].children[0]}
-      //   return (
-      //     <div class="accordion-item">
-      //       {/* {element} */}
-      //       <h2 class="accordion-header" id={`heading-${index + 1}`}>
-      //         <SBButton {...element.children[0].children[0].props}>
-      //           {element.children[0].children[0].children ? element.children[0].children[0].children.default()[0].children : null}
-      //         </SBButton>
-      //       </h2>
-      //       {element.children[1]}
-      //     </div>
-      //   )
-      // })
-      // renderMyVersion = (this as any).$slots.default().children.map((element: any, index: any) => {
-      //   console.log('element', element)
-      //   return (
-      //     <div>
-      //       <h2>{element}</h2>
-      //     </div>
-      //   )
-      // })
+    let computeCardHeaderClass = (props: ISBCardProps) => {
+      return [
+        'card-header',
+        props.headerBgVariant ? `bg-${props.headerBgVariant}` : null,
+        props.headerTextVariant ? `text-${props.headerTextVariant}` : null
+      ]
+    }
+    let renderNestedChildrenElement: JSX.Element | null = null
+    let renderImgElement: JSX.Element | null = null
+    
+    if ((this as ComponentPublicInstance).$slots.default) {
+
+      // For <SBListgroup /> inside card
+      if ( (this as any).$slots.default()[0].type.name === "SBListgroup") {
+        renderNestedChildrenElement = (
+          <div class="card">
+            {(this as any).$slots.default()}
+          </div>
+        )
+
+        // Header and footer element 
+      } else if (this.header) {
+        renderNestedChildrenElement = (
+          <div class="card">
+            <div class={computeCardHeaderClass(this.$props)}>
+              {this.header}
+            </div>
+            {(this as any).$slots.default()}
+          </div>
+        )
+
+        // For overlay or not
+      } else {
+        renderNestedChildrenElement = (
+          <div class={`${this.overlay ? "card-img-overlay" : "card-body"}`}>
+            {(this as any).$slots.default()}
+          </div>
+        )
+      }
+
+    }
+
+    if (this.imgSrc) {
+      renderImgElement = (
+        <img src={this.imgSrc} class={this.imgPositionClass} alt={this.imgAlt ? this.imgAlt : ""} />
+      )
     }
 
     return (
-      <div>
-        <h1>MY VERISON</h1>
-        <div class="accordion" id="accordionExample">
-          {/* {renderMyVersion} */}
+        <div class={computeClass((this as any).$props)} id={this.id ? this.id : "card"} style={this.style}>
+          {renderImgElement}
+          {renderNestedChildrenElement}
         </div>
-
-        <h1>REAL</h1>
-
-        <div class="card" style="width: 18rem;">
-          <img src="https://picsum.photos/600/300/?image=25" class="card-img-top" alt="..." />
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">
-              Some quick example text to build on the card title and make up the bulk of the card's content.
-            </p>
-            <a href="#" class="btn btn-primary">
-              Go somewhere
-            </a>
-          </div>
-        </div>
-      </div>
     )
-
-    // return (
-    //   <button type="button" class={computeClass((this as any).$props)} aria-label="Close" onClick={($event) => this.emitToParent($event)}></button>
-    // )
   }
 })
 

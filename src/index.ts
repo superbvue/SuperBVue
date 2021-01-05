@@ -5,6 +5,10 @@ import SBBreadcrumb from './components/breadcrumb/SBBreadcrumb'
 import SBButton from './components/button/SBButton'
 import SBButtonGroup from './components/buttonGroup/SBButtonGroup'
 import SBCard from './components/card/SBCard'
+import SBCardHeader from './components/card/SBCardHeader'
+import SBListgroup from './components/card/SBListgroup'
+import SBListgroupItem from './components/card/SBListgroupItem'
+import SBCardTitle from './components/card/SBCardTitle'
 import SBCloseButton from './components/closeButton/SBCloseButton'
 import SBContainer from './components/layoutAndGridSystem/SBContainer'
 import SBCol from './components/layoutAndGridSystem/SBCol'
@@ -26,6 +30,10 @@ export {
   SBButton,
   SBButtonGroup,
   SBCard,
+  SBCardHeader,
+  SBListgroup,
+  SBListgroupItem,
+  SBCardTitle,
   SBCloseButton,
   SBContainer,
   SBCol,

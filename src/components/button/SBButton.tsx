@@ -114,11 +114,11 @@ const SBButton = defineComponent({
       }
     },
     href: {
-      type: String as PropType<'#'>,
+      type: String,
       required: false,
-      validator: function (payload: string) {
-        return ['#'].indexOf(payload) !== -1
-      }
+      // validator: function (payload: string) {
+      //   return ['#'].indexOf(payload) !== -1
+      // }
     },
     onClick: {
       type: Function,
@@ -229,7 +229,7 @@ const SBButton = defineComponent({
 
       if ((this.$slots as any).default().length === 2) {
         if (typeof (this.$slots as any).default()[0].type === 'symbol') {
-          console.log('true')
+          // console.log('true')
           if (this.onClick) {
             return (
               <button

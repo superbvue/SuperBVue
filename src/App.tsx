@@ -12,14 +12,11 @@ import SBFormSelect from './components/form/SBFormSelect'
 import SBNavLink from './components/nav/SBNavLink'
 import SBSpinners from './components/spinners/SBSpinners'
 import SBToasts from './components/toasts/SBToasts'
-import SBContainer from './components/layoutAndGridSystem/SBContainer'
-import SBRow from './components/layoutAndGridSystem/SBRow'
-import SBCol from './components/layoutAndGridSystem/SBCol'
-import SBNav from './components/nav/SBNav'
-import SBDropdowns from './components/dropDown/SBDropdown'
-import SBDropdownItem from './components/dropDown/SBDropdownItem'
-import SBTable from './components/table/Table'
+import SBTable from './components/table/SBTable'
 import SBPagination from './components/pagination/Pagination'
+import SBCardTitle from './components/card/SBCardTitle'
+import SBListgroup from './components/card/SBListgroup'
+import SBListgroupItem from './components/card/SBListgroupItem'
 
 const App = defineComponent({
   name: 'App',
@@ -49,7 +46,7 @@ const App = defineComponent({
     }
   },
   methods: {
-    handleSetCurrentPage(event) {
+    handleSetCurrentPage(event: any) {
       this.state.currentPage = event.target.value
     }
   },
@@ -63,9 +60,23 @@ const App = defineComponent({
       <div>
         App tsx component
         {/*  */}
-        <SBPagination totalRows={this.row} onChange={this.handleSetCurrentPage} modelValue={this.state.currentPage} perPage={this.state.perPage} ariaLabel="my-custon-pagination" />
-        <SBTable fields={this.state.field} items={this.state.items} currentPage={this.state.currentPage} perPage={this.state.perPage} />
+        {/* <SBPagination totalRows={this.row} onChange={this.handleSetCurrentPage} modelValue={this.state.currentPage} perPage={this.state.perPage} ariaLabel="my-custon-pagination" /> */}
+        {/* <SBTable fields={this.state.field} items={this.state.items} currentPage={this.state.currentPage} perPage={this.state.perPage} /> */}
+        
+        {/* <SBCard style="max-width: 20rem;" class="mb-2" imgAlt="Image" imgSrc="https://picsum.photos/600/300/?image=25" imgTop>
+          <SBCardTitle >Some quick example text to build on the card title and make up the bulk of the card's content.</SBCardTitle>
+          <SBButton variant="primary">Go somewhere</SBButton>
+        </SBCard> */}
 
+        {/* <SBCard style="max-width: 20rem;">
+          <SBListgroup>
+            <SBListgroupItem>Cras justo odio</SBListgroupItem>
+          </SBListgroup>
+        </SBCard> */}
+
+        <SBCard class="text-center" title="Card title" header="Primary header" headerBgVariant="primary" headerTextVariant="white">
+          <SBCardTitle>Some quick example text to build on the <em>card title</em> and make up the bulk of the card's content.</SBCardTitle>
+        </SBCard>
       </div>
     )
   }
